@@ -253,7 +253,7 @@ pipeline {
 	    
 	    
 	    
-	    stage('commit & push'){
+	    stage('commit & push for Prod'){
   steps{
     dir("/var/lib/jenkins/workspace/jenkins-with-argocd"){
         sh "git config --global user.email 'ck769184@gmail.com'"
