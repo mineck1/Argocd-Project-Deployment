@@ -18,10 +18,9 @@ pipeline {
     
     tools {
         maven 'maven3'
+	git 'git-tool'
     }
-    tools {
-        git 'git-tool'
-    }
+  
     stages { 
         stage('Build Checkout') { 
             steps { 
@@ -159,7 +158,7 @@ pipeline {
 	    stage('commit & push'){
   steps{
 	withCredentials([gitUsernamePassword(credentialsId: 'git-credentials-mine', gitToolName: 'git-tool')]) {
-  sh 'sh 'git push origin HEAD:main''
+      sh 'git push origin HEAD:main''
 }
     }
   }
