@@ -158,7 +158,7 @@ pipeline {
 	    stage('commit & push'){
   steps{
 	withCredentials([gitUsernamePassword(credentialsId: 'git-credentials-mine', gitToolName: 'git-tool')]) {
-      sh 'git push origin HEAD:main''
+      sh 'git push origin HEAD:main'
 }
     }
   }
