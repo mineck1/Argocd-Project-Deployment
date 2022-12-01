@@ -147,8 +147,8 @@ pipeline {
      stage('Update Manifest for test'){
     steps{
         dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
-            sh  "sed -i 's#replace#${imageName}#g' blue.yaml"
-            sh "cat blue.yaml"
+            sh  "sed -i 's#replace#${imageName}#g' blue.yml"
+            sh "cat blue.yml"
         }
     }
 }	   
