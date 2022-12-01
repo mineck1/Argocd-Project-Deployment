@@ -146,7 +146,7 @@ pipeline {
     }
      stage('Update Manifest for test'){
     steps{
-        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
+        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret/"){
             sh  "sed -i 's#replace#${imageName}#g' blue.yml"
             sh "cat blue.yml"
         }
@@ -227,7 +227,7 @@ pipeline {
 	    
 	 stage('Update Manifest for Prod'){
     steps{
-        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
+        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret/"){
             sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
             sh "cat k8s_PROD-deployment_service.yaml"
         }
