@@ -146,7 +146,7 @@ pipeline {
     }
      stage('Update Manifest'){
     steps{
-        dir("/var/lib/jenkins/workspace/mine-project/secret"){
+        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
             sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
             sh "cat k8s_PROD-deployment_service.yaml"
         }
