@@ -29,7 +29,7 @@ pipeline {
         stage('Build Now') { 
             steps { 
               
-                  dir("/var/lib/jenkins/workspace/mine-project") {
+                  dir("/var/lib/jenkins/workspace/jenkins-with-argocd") {
                     sh 'mvn -version'
                     sh 'mvn clean install'
                       
@@ -95,12 +95,12 @@ pipeline {
            
               stage(' Rename and move Build To Perticuler Folder '){
                 steps {
-                   sh 'mv /var/lib/jenkins/workspace/mine-project/target/jenkins-git-integration.war   /var/lib/jenkins/workspace/mine-project/epps-smartERP.war'
-                  sh 'chmod -R 777 /var/lib/jenkins/workspace/mine-project/epps-smartERP.war'
+                   sh 'mv /var/lib/jenkins/workspace/jenkins-with-argocd/target/jenkins-git-integration.war   /var/lib/jenkins/workspace/jenkins-with-argocd/epps-smartERP.war'
+                  sh 'chmod -R 777 /var/lib/jenkins/workspace/jenkins-with-argocd/epps-smartERP.war'
                   
-                  sh 'chmod -R 777 /var/lib/jenkins/workspace/mine-project/Dockerfile'
-                  sh 'chmod -R 777 /var/lib/jenkins/workspace/mine-project/shell.sh'
-                  sh 'chown jenkins:jenkins  /var/lib/jenkins/workspace/mine-project/trivy-docker-image-scan.sh'                
+                  sh 'chmod -R 777 /var/lib/jenkins/workspace/jenkins-with-argocd/Dockerfile'
+                  sh 'chmod -R 777 /var/lib/jenkins/workspace/jenkins-with-argocd/shell.sh'
+                  sh 'chown jenkins:jenkins  /var/lib/jenkins/workspace/jenkins-with-argocd/trivy-docker-image-scan.sh'                
                  
                                      }
                        }
@@ -123,7 +123,7 @@ pipeline {
  // Building Docker images
     stage('Building image | Upload to Harbor Repo') {
       steps{
-            sh '/var/lib/jenkins/workspace/mine-project/shell.sh'  
+            sh '/var/lib/jenkins/workspace/jenkins-with-argocd/shell.sh'  
     }
       
     }
