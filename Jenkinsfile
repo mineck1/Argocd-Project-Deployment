@@ -144,11 +144,11 @@ pipeline {
         )
       }
     }
-     stage('Update Manifest'){
+     stage('Update Manifest for test'){
     steps{
         dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
-            sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
-            sh "cat k8s_PROD-deployment_service.yaml"
+            sh  "sed -i 's#replace#${imageName}#g' blue.yaml"
+            sh "cat blue.yaml"
         }
     }
 }	   
@@ -224,6 +224,15 @@ pipeline {
          }
        }
      }
+	    
+	 stage('Update Manifest for Prod'){
+    steps{
+        dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
+            sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
+            sh "cat k8s_PROD-deployment_service.yaml"
+        }
+    }
+}	     
 	    
 	  stage('K8S Deployment - PROD') {
        steps {
