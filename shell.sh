@@ -1,5 +1,5 @@
 #! /bin/bash
-cd /var/lib/jenkins/workspace/mine-project/
+cd /var/lib/jenkins/workspace/Argocd-Project/
 sudo su - jenkins -s/bin/bash
 #docker logout   master.mine.com
  docker login -u admin --password-stdin Harbor12345 master.mine.com
