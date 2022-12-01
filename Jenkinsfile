@@ -148,7 +148,7 @@ pipeline {
     steps{
         dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
             sh  "sed -i 's#replace#${imageName}#g' blue.yml"
-            sh "cat /var/lib/jenkins/workspace/jenkins-with-argocd/secret/blue.yml"
+            sh "cat blue.yml"
         }
     }
 }	   
@@ -229,7 +229,7 @@ pipeline {
     steps{
         dir("/var/lib/jenkins/workspace/jenkins-with-argocd/secret"){
             sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
-            sh "cat /var/lib/jenkins/workspace/jenkins-with-argocd/secret/k8s_PROD-deployment_service.yaml"
+            sh "cat k8s_PROD-deployment_service.yaml"
         }
     }
 }	     
