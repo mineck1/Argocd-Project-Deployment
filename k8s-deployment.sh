@@ -9,4 +9,4 @@ kubectl -n test get deployment ${deploymentName} > /dev/null
   #  echo "image name - ${imageName}"
    # kubectl -n test set image deploy ${deploymentName} ${containerName}=${imageName} --record=true
 #fi
-kubectl  apply -f blue.yml
+kubectl  apply -f blue.yml -n test
