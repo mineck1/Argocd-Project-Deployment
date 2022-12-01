@@ -144,7 +144,14 @@ pipeline {
         )
       }
     }
-    
+     stage('Update Manifest'){
+    steps{
+        dir("/var/lib/jenkins/workspace/mine-project/secret"){
+            sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
+            sh "cat k8s_PROD-deployment_service.yaml"
+        }
+    }
+}	   
     
     stage('K8S Deployment - DEV') {
        steps {
@@ -163,14 +170,7 @@ pipeline {
        }
      }
 	    
-    stage('Update Manifest'){
-    steps{
-        dir("/var/lib/jenkins/workspace/mine-project/secret"){
-            sh  "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
-            sh "cat k8s_PROD-deployment_service.yaml"
-        }
-    }
-}	    
+    
 	    
 	   stage('Integration Tests - DEV') {
          steps {
