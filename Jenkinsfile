@@ -160,7 +160,7 @@ pipeline {
         sh "git config --global user.email 'ck769184@gmail.com'"
         sh 'git remote set-url origin https://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@github.com/ckmine/Argocd-Project.git'        
         sh 'git add secret'
-        sh 'git commit -am "update ${imageName}'
+        sh 'git commit -am "update ${imageName}"'
         sh 'git push origin HEAD:main' 
     }
     }
