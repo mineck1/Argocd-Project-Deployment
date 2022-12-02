@@ -257,7 +257,7 @@ pipeline {
 	 withCredentials([gitUsernamePassword(credentialsId: 'gitcred', gitToolName: 'git')]) 
     dir("/var/lib/jenkins/workspace/jenkins-with-argocd"){
         sh "git config --global user.email 'ck769184@gmail.com'"
-        sh 'git remote add origin  https://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@github.com/ckmine/Argocd-Project'        
+        sh 'git remote set-url origin https://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@github.com/ckmine/Argocd-Project.git'        
         sh 'git add secret'
         sh 'git commit -am "update ${imageName}"'
         sh 'git push origin HEAD:main' 
