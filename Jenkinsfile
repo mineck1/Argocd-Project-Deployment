@@ -158,10 +158,10 @@ pipeline {
   steps{
     dir("/var/lib/jenkins/workspace/jenkins-with-argocd"){
         sh "git config --global user.email 'ck769184@gmail.com'"
-        sh 'git remote set-url origin https://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@github.com/ckmine/Argocd-Project.git'        
+        sh 'git remote add origin https://github.com/ckmine/Argocd-Project.git'
         sh 'git add secret'
         sh 'git commit -am "update ${imageName}"'
-        sh 'git push origin HEAD:main' 
+        sh 'git push https://ckmine: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@github.com/ckmine/Argocd-Project.git Head:main' 
     }
     }
   }
