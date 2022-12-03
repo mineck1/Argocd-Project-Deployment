@@ -161,7 +161,7 @@ pipeline {
        // sh 'git remote add origin https://github.com/ckmine/Argocd-Project.git'
         sh 'git add secret'
         sh 'git commit -am "update ${imageName}"'
-        sh 'git push https://ckmine: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@github.com/ckmine/Argocd-Project.git Head:main' 
+        sh 'git push https://ckmine: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@github.com/ckmine/holder.git main' 
     }
     }
   }
