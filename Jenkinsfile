@@ -249,7 +249,11 @@ pipeline {
         }
     }
 }	     
-	    
+	  stage('Build Checkout') { 
+            steps { 
+              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ckmine/Argocd-Project-Deployment.git']]])
+         }
+        }  
 	    
 	    
 	    stage('commit & push for Prod'){
